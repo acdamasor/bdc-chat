@@ -1,11 +1,11 @@
-# SOLICITUD DE APORTACIÓN ADICIONAL — SEGURO UNIT-LINKED (PERSONA JURÍDICA)
+# SOLICITUD DE SEGURO — PERSONA JURÍDICA
 
-> Documento duplicado y adaptado a partir de la solicitud original (MOD. 5072 - 11/23)
-> para una **aportación adicional de 3.000 €** sobre la póliza ya existente.
-> Los datos personales y societarios se conservan de la solicitud original.
-> **Pendientes de completar:** nº de póliza (en la carpeta de boro), fecha y firmas.
+## MAXIPLAN SELECCIÓN DINÁMICA · MOD. 5072 - 11/23
 
-Código mediador: ⬜
+> Solicitud nueva para la aportación de **3.000 € (aportación inicial) + 150 €/mes (regular)**.
+> Rellenada a partir de los datos de la solicitud original. Campos ⬜ = pendientes de completar.
+
+**Código mediador:** ⬜ *(lo pone el mediador)*
 
 ---
 
@@ -15,7 +15,7 @@ Código mediador: ⬜
 |---|---|
 | Razón social | **BORO PEÑA E HIJOS SL** |
 | NIF | **B76241124** |
-| Domicilio | Subida de las Rosas 90 |
+| Domicilio · Nº | Subida de las Rosas · 90 |
 | Población | Las Rosas |
 | Código postal | 35460 |
 | Provincia | Las Palmas |
@@ -24,7 +24,7 @@ Código mediador: ⬜
 | Email | taller@boropehijos.com |
 | Actividad | Carpintería metálica |
 
-Recepción de información periódica: ☐ Área privada web · ☐ Correo electrónico · ☐ Correo postal
+**Recepción de información periódica:** ☒ Correo electrónico · ☐ Área privada web · ☐ Correo postal
 
 ---
 
@@ -47,27 +47,32 @@ Recepción de información periódica: ☐ Área privada web · ☐ Correo elect
 
 ## DATOS DEL SEGURO
 
-**Beneficiarios:** BORO PEÑA E HIJOS SL — B76241124
+| Campo | Dato |
+|---|---|
+| **Fecha efecto** | ⬜ *(a indicar)* |
+| ¿Aportación procede de prestación de otra póliza? | ☐ No — es dinero nuevo de la empresa → **Nº Póliza Origen: no aplica** |
+
+### Aportaciones del seguro
+| Concepto | Marca | Importe | Periodicidad |
+|---|---|---|---|
+| **Aportación regular** | ☒ | **150 €** | Mensual |
+| **Aportación inicial** (mín. 3.000 €) | — | **3.000 €** | Única |
+| Crecimiento (acumulativo, máx. 5%) | ☐ | — | — |
+
+**Domiciliación (IBAN):** ES ⬜⬜⬜⬜ ⬜⬜⬜⬜ ⬜⬜⬜⬜ ⬜⬜⬜⬜ ⬜⬜⬜⬜ ⬜⬜⬜⬜ *(cuenta de la empresa — a rellenar)*
+
+---
+
+## BENEFICIARIOS
+
+**BORO PEÑA E HIJOS SL — B76241124**
 *(En caso de no designar beneficiarios, se aplica la cláusula estándar.)*
 
 ---
 
-## APORTACIÓN
+## DISTRIBUCIÓN ENTRE LOS FONDOS (100%)
 
-| Campo | Dato |
-|---|---|
-| **Importe de la aportación** | **3.000 €** |
-| Tipo | Aportación adicional / extraordinaria (prima única) |
-| Forma de pago | Domiciliación bancaria SEPA (mandato recurrente ya autorizado en la solicitud original) |
-| **Nº de póliza** | **⬜ — rellenar desde la carpeta de boro** |
-
----
-
-## DISTRIBUCIÓN ENTRE LOS FONDOS
-
-*(Misma distribución que la póliza actual — perfil 100% renta variable.)*
-
-| CÓDIGO | OPCIÓN DE INVERSIÓN | % DISTRIBUCIÓN |
+| CÓDIGO | OPCIÓN DE INVERSIÓN | % |
 |---|---|---:|
 | 00305 | SANTALUCÍA EUROBOLSA, FI | 25 |
 | 00308 | SANTALUCÍA QUALITY ACCIONES, FI | 20 |
@@ -84,27 +89,30 @@ Recepción de información periódica: ☐ Área privada web · ☐ Correo elect
 
 ## GASTOS Y PENALIZACIONES
 
-Aplican los mismos que la póliza original:
 - **Gastos de gestión:** según fondo (ver anexo a la Nota informativa — pendiente de obtener).
-- **Reasignación:** 4 cambios/año gratis; el 5º y siguientes, 15 € cada uno.
+- **Reasignación:** 4 cambios/año gratis; 5º y siguientes, 15 € cada uno.
 - **Penalización por rescate:** 1er año 1,5% (mín. 50 €) · 2º-3º 1% · 4º-5º 0,5% · 6º+ sin penalización.
-- **Coste del capital adicional de fallecimiento:** se descuenta mensualmente reduciendo participaciones.
+- **Coste del capital adicional de fallecimiento:** descuento mensual reduciendo participaciones.
 
 ---
 
-## CUESTIONARIO DE SALUD
+## CUESTIONARIO DE SALUD  *(a cumplimentar por el asegurado — Daniel)*
 
-**No aplica.** El riesgo del asegurado ya fue valorado en la contratación original; una aportación
-adicional sobre póliza vigente no requiere nuevo cuestionario de salud (confirmar con el mediador).
+Al ser una solicitud nueva, el cuestionario de salud **sí aplica**. Debe responderlo el asegurado:
+
+1. ¿Baja > 15 días seguidos en los últimos 5 años / hospital / intervención / tratamiento previsto? → ☐ Sí ☐ No
+2. ¿Invalidez, incapacidad o minusvalía reconocida o en trámite? → ☐ Sí ☐ No
+3. ¿Enfermedad cardíaca, renal, hepática, neurológica, pulmonar, digestiva, sanguínea, psiquiátrica, ósea, hormonal o de transmisión sexual? → ☐ Sí ☐ No
+
+> ⚠️ Debe responderse **con veracidad**: omitir datos puede reducir o anular la indemnización.
 
 ---
 
-## TITULARIDAD REAL (PERSONA JURÍDICA) — se mantiene de la solicitud original
+## TITULARIDAD REAL (PERSONA JURÍDICA)
 
 **Firmante:** Daniel Peña González · NIF 44721185P
 
-**Socios/accionistas con participación superior al 25%:**
-
+**Socios con participación > 25%:**
 | Nombre | Identificación | Nacionalidad | Participación |
 |---|---|---|---:|
 | Daniel Peña González | 44721185P | Española | 90% |
@@ -112,15 +120,14 @@ adicional sobre póliza vigente no requiere nuevo cuestionario de salud (confirm
 
 **Titular real:** Daniel Peña González · 44721185P · Española · Gáldar · 11/01/1986 · Control 90%
 
-**Datos profesionales:** Actividad — Carpintería metálica · Antigüedad — desde 2009 (más de 10 años) ·
-Origen de los fondos — actividad de la empresa.
+**Datos profesionales:** Carpintería metálica · antigüedad desde 2009 (más de 10 años) · origen de los fondos: actividad de la empresa.
 
 ---
 
 ## DECLARACIÓN Y FIRMA
 
-El tomador/asegurado declara que la información es veraz y que asume los riesgos asociados a las
-opciones de inversión (la aseguradora no garantiza rentabilidad ni interés).
+El tomador/asegurado declara que la información es veraz y que asume los riesgos de las opciones de
+inversión (la aseguradora no garantiza rentabilidad ni interés).
 
 | | |
 |---|---|
@@ -130,6 +137,6 @@ opciones de inversión (la aseguradora no garantiza rentabilidad ni interés).
 
 ---
 
-*Referencia: adaptación de MOD. 5072 - 11/23. Las cláusulas LOPD y autorizaciones de tratamiento de
-datos se mantienen según lo firmado en la solicitud original. Documento de trabajo — la firma se
-realiza sobre el formulario oficial de Santalucía.*
+*Referencia: MOD. 5072 - 11/23. Las cláusulas LOPD y autorizaciones de tratamiento de datos se
+completan según el formulario oficial. Documento de trabajo — la firma se realiza sobre el impreso
+oficial de Santalucía.*

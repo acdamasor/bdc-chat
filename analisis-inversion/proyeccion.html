@@ -1,0 +1,526 @@
+<title>Proyección póliza unit-linked — BORO PEÑA E HIJOS SL</title>
+<style>
+  :root {
+    --surface: #fcfcfb;
+    --card: #ffffff;
+    --ink: #1b2530;
+    --muted: #5b6672;
+    --faint: #8a939e;
+    --hair: #e6e8ec;
+    --hair-strong: #d3d7dd;
+    --accent: #17998a;
+    --loss: #c0392b;
+    --grid: #eef0f3;
+    --s-a: #2f6fb0;   /* Solo mantener */
+    --s-b: #17998a;   /* Seguir 150/mes */
+    --s-c: #d98a1e;   /* +3.000 ahora */
+    --band: rgba(23,153,138,0.10);
+    --shadow: 0 1px 2px rgba(20,30,45,.05), 0 4px 16px rgba(20,30,45,.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --surface: #131518;
+      --card: #1a1c20;
+      --ink: #e7eaee;
+      --muted: #9aa3ad;
+      --faint: #737d88;
+      --hair: #2a2e35;
+      --hair-strong: #363b44;
+      --accent: #2ba894;
+      --loss: #e37b6b;
+      --grid: #23262c;
+      --s-a: #5590d0;
+      --s-b: #2ba894;
+      --s-c: #c48326;
+      --band: rgba(43,168,148,0.14);
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 6px 20px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="light"] {
+    --surface: #fcfcfb; --card: #ffffff; --ink: #1b2530; --muted: #5b6672; --faint: #8a939e;
+    --hair: #e6e8ec; --hair-strong: #d3d7dd; --accent: #17998a; --loss: #c0392b; --grid: #eef0f3;
+    --s-a: #2f6fb0; --s-b: #17998a; --s-c: #d98a1e; --band: rgba(23,153,138,0.10);
+    --shadow: 0 1px 2px rgba(20,30,45,.05), 0 4px 16px rgba(20,30,45,.05);
+  }
+  :root[data-theme="dark"] {
+    --surface: #131518; --card: #1a1c20; --ink: #e7eaee; --muted: #9aa3ad; --faint: #737d88;
+    --hair: #2a2e35; --hair-strong: #363b44; --accent: #2ba894; --loss: #e37b6b; --grid: #23262c;
+    --s-a: #5590d0; --s-b: #2ba894; --s-c: #c48326; --band: rgba(43,168,148,0.14);
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 6px 20px rgba(0,0,0,.35);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--surface);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 40px 22px 72px; }
+
+  .serif { font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif; }
+  h1 { font-size: clamp(1.7rem, 4.2vw, 2.5rem); line-height: 1.12; margin: 0 0 .35em; font-weight: 600; letter-spacing: -.01em; text-wrap: balance; }
+  h2 { font-size: 1.28rem; margin: 0 0 .2em; font-weight: 600; letter-spacing: -.01em; }
+  p { margin: 0 0 1em; }
+  .num { font-variant-numeric: tabular-nums; }
+
+  .eyebrow { text-transform: uppercase; letter-spacing: .13em; font-size: .72rem; font-weight: 600; color: var(--accent); margin-bottom: .9em; }
+  .lede { color: var(--muted); font-size: 1.02rem; max-width: 62ch; }
+
+  header { border-bottom: 1px solid var(--hair); padding-bottom: 26px; margin-bottom: 30px; }
+
+  .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 26px; }
+  .tile { background: var(--card); border: 1px solid var(--hair); border-radius: 12px; padding: 16px 18px; box-shadow: var(--shadow); }
+  .tile .label { font-size: .74rem; text-transform: uppercase; letter-spacing: .07em; color: var(--faint); margin-bottom: 8px; }
+  .tile .value { font-size: 1.62rem; font-weight: 650; letter-spacing: -.02em; }
+  .tile .sub { font-size: .82rem; color: var(--muted); margin-top: 3px; }
+  .tile.warn { border-color: color-mix(in srgb, var(--loss) 40%, var(--hair)); }
+  .tile.warn .value { color: var(--loss); }
+
+  section { margin-top: 40px; }
+  .card { background: var(--card); border: 1px solid var(--hair); border-radius: 16px; padding: 24px 24px 20px; box-shadow: var(--shadow); }
+  .card .kicker { color: var(--muted); font-size: .92rem; margin: .1em 0 0; }
+
+  .controls { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 8px; }
+  .controls .grouplabel { font-size: .78rem; color: var(--faint); align-self: center; margin-right: 4px; text-transform: uppercase; letter-spacing: .06em; }
+  button.seg {
+    font: inherit; font-size: .86rem; font-weight: 550;
+    padding: 7px 13px; border-radius: 999px; cursor: pointer;
+    background: transparent; color: var(--muted);
+    border: 1px solid var(--hair-strong); transition: .15s;
+    display: inline-flex; align-items: center; gap: 7px;
+  }
+  button.seg:hover { color: var(--ink); border-color: var(--faint); }
+  button.seg[aria-pressed="true"] { background: color-mix(in srgb, var(--accent) 12%, var(--card)); border-color: var(--accent); color: var(--ink); }
+  button.seg:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .swatch { width: 10px; height: 10px; border-radius: 3px; flex: none; }
+
+  .chartbox { position: relative; margin-top: 8px; }
+  svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .axis-txt { fill: var(--faint); font-size: 11px; font-variant-numeric: tabular-nums; }
+  .gridline { stroke: var(--grid); stroke-width: 1; }
+  .zeroline { stroke: var(--hair-strong); stroke-width: 1; }
+  .endlabel { font-size: 11.5px; font-weight: 650; font-variant-numeric: tabular-nums; }
+  .endlabel-name { font-size: 10.5px; font-weight: 600; }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 14px; }
+  .legend .item { display: inline-flex; align-items: center; gap: 8px; font-size: .86rem; color: var(--muted); }
+  .legend .line { width: 18px; height: 3px; border-radius: 2px; }
+
+  .tooltip {
+    position: absolute; pointer-events: none; opacity: 0; transition: opacity .1s;
+    background: var(--card); border: 1px solid var(--hair-strong); border-radius: 10px;
+    box-shadow: var(--shadow); padding: 9px 11px; font-size: .8rem; min-width: 148px; z-index: 5;
+  }
+  .tooltip .tt-head { font-weight: 650; margin-bottom: 6px; font-size: .82rem; }
+  .tooltip .tt-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 2px 0; }
+  .tooltip .tt-row .lft { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); }
+  .tooltip .tt-row .val { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--ink); }
+  .tt-dot { width: 9px; height: 9px; border-radius: 3px; flex: none; }
+
+  table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+  .tablescroll { overflow-x: auto; margin-top: 6px; }
+  th, td { text-align: right; padding: 9px 12px; white-space: nowrap; }
+  th:first-child, td:first-child { text-align: left; }
+  thead th { font-size: .74rem; text-transform: uppercase; letter-spacing: .05em; color: var(--faint); border-bottom: 1px solid var(--hair-strong); font-weight: 600; }
+  tbody td { border-bottom: 1px solid var(--hair); font-variant-numeric: tabular-nums; }
+  tbody tr:last-child td { border-bottom: none; }
+  .rowgroup td { padding-top: 15px; }
+  .stratcell { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; color: var(--ink); }
+
+  .note { border-left: 3px solid var(--accent); padding: 4px 0 4px 16px; margin: 20px 0; color: var(--muted); font-size: .92rem; }
+  .note strong { color: var(--ink); }
+  .warnbox { background: color-mix(in srgb, var(--loss) 7%, var(--card)); border: 1px solid color-mix(in srgb, var(--loss) 28%, var(--hair)); border-radius: 12px; padding: 16px 18px; margin-top: 18px; }
+  .warnbox .t { font-weight: 650; color: var(--loss); margin-bottom: 4px; }
+
+  ul.clean { padding-left: 0; list-style: none; margin: 0; }
+  ul.clean li { padding: 10px 0; border-bottom: 1px solid var(--hair); display: flex; gap: 12px; }
+  ul.clean li:last-child { border-bottom: none; }
+  ul.clean li .mk { flex: none; width: 24px; height: 24px; border-radius: 7px; display: grid; place-items: center; font-size: .8rem; font-weight: 700; }
+  .mk.go { background: color-mix(in srgb, var(--s-b) 16%, var(--card)); color: var(--s-b); }
+  .mk.hold { background: color-mix(in srgb, var(--s-a) 16%, var(--card)); color: var(--s-a); }
+  .mk.stop { background: color-mix(in srgb, var(--s-c) 18%, var(--card)); color: var(--s-c); }
+
+  .foot { margin-top: 44px; padding-top: 20px; border-top: 1px solid var(--hair); font-size: .78rem; color: var(--faint); }
+
+  /* per-fund bars */
+  .fundlist { display: flex; flex-direction: column; gap: 11px; margin-top: 4px; }
+  .fundrow { display: grid; grid-template-columns: 210px 1fr 82px; align-items: center; gap: 14px; }
+  .fundname { font-size: .87rem; display: flex; align-items: center; gap: 8px; }
+  .fundname .pill { font-size: .62rem; text-transform: uppercase; letter-spacing: .04em; padding: 2px 6px; border-radius: 5px; background: color-mix(in srgb, var(--s-a) 16%, var(--card)); color: var(--s-a); font-weight: 700; }
+  .barwrap { background: var(--grid); border-radius: 5px; height: 20px; overflow: hidden; }
+  .bar { height: 100%; border-radius: 5px; }
+  .fundval { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; font-size: .87rem; }
+
+  /* quarter diverging bars */
+  .qlist { display: flex; flex-direction: column; gap: 14px; margin-top: 2px; }
+  .qrow { display: grid; grid-template-columns: 130px 1fr 62px; align-items: center; gap: 12px; }
+  .qlabel { font-size: .85rem; color: var(--muted); }
+  .qtrack { position: relative; height: 26px; background: var(--grid); border-radius: 6px; }
+  .qcenter { position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: var(--hair-strong); }
+  .qbar { position: absolute; top: 4px; bottom: 4px; border-radius: 4px; }
+  .qbar.pos { left: 50%; background: var(--s-b); }
+  .qbar.neg { right: 50%; background: var(--loss); }
+  .qval { font-size: .86rem; font-weight: 650; font-variant-numeric: tabular-nums; }
+  .qval.pos { color: var(--s-b); }
+  .qval.neg { color: var(--loss); }
+
+  @media (max-width: 620px) {
+    .fundrow { grid-template-columns: 128px 1fr 66px; gap: 9px; }
+    .fundname { font-size: .77rem; }
+    .qrow { grid-template-columns: 92px 1fr 54px; gap: 8px; }
+    .qlabel { font-size: .77rem; }
+    .tiles { grid-template-columns: 1fr; }
+    .tile .value { font-size: 1.5rem; }
+  }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Análisis de inversión · Unit-linked Santalucía</div>
+    <h1 class="serif">Proyección de la póliza antes de aportar los 3.000&nbsp;€</h1>
+    <p class="lede">Seguro de vida <em>unit-linked</em> de <strong>BORO PEÑA E HIJOS SL</strong> (cartera 100% renta variable, perfil agresivo). Partimos del valor real de hoy y proyectamos tres estrategias a 10 años. Las cifras son <strong>escenarios netos estimados</strong>, no una previsión garantizada.</p>
+    <div class="tiles">
+      <div class="tile">
+        <div class="label">Aportado hasta hoy</div>
+        <div class="value num">1.500 €</div>
+        <div class="sub">150 €/mes · 10 meses</div>
+      </div>
+      <div class="tile">
+        <div class="label">Valor actual</div>
+        <div class="value num">1.430 €</div>
+        <div class="sub">Cartera actual (cesta agresiva)</div>
+      </div>
+      <div class="tile warn">
+        <div class="label">Resultado a hoy</div>
+        <div class="value num">−4,7 %</div>
+        <div class="sub">−70 € · en negativo tras 10 meses</div>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <h2>1 · Valor actual estimado por fondo</h2>
+    <p class="kicker">Reparto de los 1.430 € según tu distribución objetivo. Es una estimación: el peso real habrá derivado (hoy la tecnología pesa más tras el rebote del Q2).</p>
+    <div class="card">
+      <div class="fundlist">
+        <div class="fundrow"><span class="fundname">Santalucía Eurobolsa</span><div class="barwrap"><div class="bar" style="width:100%;background:var(--s-b)"></div></div><span class="fundval">357,50 €</span></div>
+        <div class="fundrow"><span class="fundname">Santalucía Quality Acciones</span><div class="barwrap"><div class="bar" style="width:80%;background:var(--s-b)"></div></div><span class="fundval">286,00 €</span></div>
+        <div class="fundrow"><span class="fundname">Santalucía Ibérico Acciones</span><div class="barwrap"><div class="bar" style="width:40%;background:var(--s-b)"></div></div><span class="fundval">143,00 €</span></div>
+        <div class="fundrow"><span class="fundname">Santalucía Selección Decidido</span><div class="barwrap"><div class="bar" style="width:40%;background:var(--s-b)"></div></div><span class="fundval">143,00 €</span></div>
+        <div class="fundrow"><span class="fundname">T. Rowe US Large-Cap Growth <span class="pill">externo</span></span><div class="barwrap"><div class="bar" style="width:40%;background:var(--s-a)"></div></div><span class="fundval">143,00 €</span></div>
+        <div class="fundrow"><span class="fundname">BlackRock World Technology <span class="pill">externo</span></span><div class="barwrap"><div class="bar" style="width:40%;background:var(--s-a)"></div></div><span class="fundval">143,00 €</span></div>
+        <div class="fundrow"><span class="fundname">Santalucía RV Internacional</span><div class="barwrap"><div class="bar" style="width:20%;background:var(--s-b)"></div></div><span class="fundval">71,50 €</span></div>
+        <div class="fundrow"><span class="fundname">DPAM NewGems Sustainable <span class="pill">externo</span></span><div class="barwrap"><div class="bar" style="width:20%;background:var(--s-a)"></div></div><span class="fundval">71,50 €</span></div>
+        <div class="fundrow"><span class="fundname">Fidelity Global Health Care <span class="pill">externo</span></span><div class="barwrap"><div class="bar" style="width:20%;background:var(--s-a)"></div></div><span class="fundval">71,50 €</span></div>
+      </div>
+      <div class="legend">
+        <span class="item"><span class="line" style="background:var(--s-b)"></span> Fondos Santalucía · 70% (1.001 €)</span>
+        <span class="item"><span class="line" style="background:var(--s-a)"></span> Fondos externos · 30% (429 €)</span>
+      </div>
+    </div>
+    <div class="note">
+      El <strong>70%</strong> está en fondos de la propia Santalucía y el <strong>30%</strong> en gestoras externas (BlackRock, T. Rowe, Fidelity, DPAM), que suelen llevar comisión de gestión más alta. Para el reparto <strong>real</strong> por fondo necesitas el <strong>extracto de posiciones</strong> de la póliza.
+    </div>
+  </section>
+
+  <section>
+    <h2>2 · Progresión en 2026: tu póliza vs. la referencia</h2>
+    <p class="kicker">Rentabilidad de la cesta agresiva de referencia (informe trimestral, datos a 30/06/2026) frente al resultado real de tu póliza.</p>
+    <div class="card">
+      <div class="qlist">
+        <div class="qrow"><span class="qlabel">Q1 · ene–mar</span><div class="qtrack"><div class="qcenter"></div><div class="qbar neg" style="width:25.3%"></div></div><span class="qval neg">−5,2%</span></div>
+        <div class="qrow"><span class="qlabel">Q2 · abr–jun</span><div class="qtrack"><div class="qcenter"></div><div class="qbar pos" style="width:50%"></div></div><span class="qval pos">+10,3%</span></div>
+        <div class="qrow"><span class="qlabel">Acumulado año</span><div class="qtrack"><div class="qcenter"></div><div class="qbar pos" style="width:21.9%"></div></div><span class="qval pos">+4,5%</span></div>
+      </div>
+      <div class="tiles" style="margin-top:24px">
+        <div class="tile"><div class="label">Referencia · YTD 2026</div><div class="value num" style="color:var(--s-b)">+4,5 %</div><div class="sub">Cesta agresiva (informe)</div></div>
+        <div class="tile warn"><div class="label">Tu póliza · desde sep-25</div><div class="value num">−4,7 %</div><div class="sub">1.430 € sobre 1.500 €</div></div>
+        <div class="tile warn"><div class="label">Brecha en tu contra</div><div class="value num">≈ −10 pts</div><div class="sub">A investigar</div></div>
+      </div>
+    </div>
+    <div class="warnbox">
+      <div class="t">🚩 Pregunta clave para tu mediador</div>
+      La referencia va en <strong>positivo (+4,5% en el año)</strong> y tu póliza en <strong>−4,7%</strong>. Esa brecha de ~10 puntos apunta al <strong>coste del unit-linked</strong> (doble comisión + coste mensual de fallecimiento) y/o a tu mezcla 100% bolsa sin colchón de renta fija. Pídele: <em>«¿Cuánto me resta la comisión total anual y por qué rindo por debajo de la cesta de referencia?»</em>
+    </div>
+  </section>
+
+  <section>
+    <h2>3 · Comparativa de las tres estrategias</h2>
+    <p class="kicker">Escenario base (4,5 %/año neto). Cambia el escenario para ver cómo se abre el abanico.</p>
+    <div class="card">
+      <div class="controls" role="group" aria-label="Escenario de rentabilidad">
+        <span class="grouplabel">Escenario</span>
+        <button class="seg" data-scn="prudent" aria-pressed="false">Prudente · 2 %</button>
+        <button class="seg" data-scn="base" aria-pressed="true">Base · 4,5 %</button>
+        <button class="seg" data-scn="fav" aria-pressed="false">Favorable · 7 %</button>
+      </div>
+      <div class="chartbox">
+        <svg id="chart1" viewBox="0 0 720 380" role="img" aria-label="Comparativa de tres estrategias de aportación a 10 años"></svg>
+        <div class="tooltip" id="tt1"></div>
+      </div>
+      <div class="legend">
+        <span class="item"><span class="line" style="background:var(--s-a)"></span> A · Solo mantener (1.430 €)</span>
+        <span class="item"><span class="line" style="background:var(--s-b)"></span> B · Seguir 150 €/mes</span>
+        <span class="item"><span class="line" style="background:var(--s-c)"></span> C · 150 €/mes + 3.000 € ahora</span>
+      </div>
+    </div>
+    <div class="note">
+      El motor del crecimiento <strong>no es el mercado, son las aportaciones</strong>: la línea A (dejar los 1.430 € quietos) apenas se mueve. La diferencia entre B y C es <strong>exactamente el efecto de meter los 3.000 € de golpe</strong>.
+    </div>
+  </section>
+
+  <section>
+    <h2>4 · Banda de escenarios por estrategia</h2>
+    <p class="kicker">Elige una estrategia. La zona sombreada es el recorrido entre el escenario prudente (2 %) y el favorable (7 %).</p>
+    <div class="card">
+      <div class="controls" role="group" aria-label="Estrategia">
+        <span class="grouplabel">Estrategia</span>
+        <button class="seg" data-strat="A" aria-pressed="false"><span class="swatch" style="background:var(--s-a)"></span>Solo mantener</button>
+        <button class="seg" data-strat="B" aria-pressed="true"><span class="swatch" style="background:var(--s-b)"></span>Seguir 150 €/mes</button>
+        <button class="seg" data-strat="C" aria-pressed="false"><span class="swatch" style="background:var(--s-c)"></span>+3.000 € ahora</button>
+      </div>
+      <div class="chartbox">
+        <svg id="chart2" viewBox="0 0 720 380" role="img" aria-label="Banda de escenarios prudente a favorable de la estrategia seleccionada"></svg>
+        <div class="tooltip" id="tt2"></div>
+      </div>
+    </div>
+    <div class="warnbox">
+      <div class="t">⚠ Y esto sigue siendo la media</div>
+      Con una volatilidad estimada del <strong>14–16 %</strong>, un año cualquiera puede desviarse <strong>±20–30 %</strong> sobre estas líneas. La cifra con la que te quedas depende mucho de <strong>cuándo</strong> rescates: entrar con 3.000 € justo tras un trimestre de +10 % es el mayor riesgo de «entrar caro».
+    </div>
+  </section>
+
+  <section>
+    <h2>5 · Cifras clave</h2>
+    <p class="kicker">Valor estimado de la póliza al final de cada horizonte, por estrategia y escenario.</p>
+    <div class="card">
+      <div class="tablescroll">
+        <table id="datatable">
+          <thead>
+            <tr>
+              <th>Estrategia · horizonte</th>
+              <th>Aportado acum.</th>
+              <th>Prudente 2 %</th>
+              <th>Base 4,5 %</th>
+              <th>Favorable 7 %</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Lectura para la decisión</h2>
+    <div class="card">
+      <ul class="clean">
+        <li><span class="mk go">B</span><div><strong>Camino natural y prudente: seguir con los 150 €/mes.</strong> Crecimiento suave, promediando el precio de entrada — justo lo que llevas haciendo bien 10 meses.</div></li>
+        <li><span class="mk stop">C</span><div><strong>Los 3.000 € de golpe casi triplican tu exposición en un solo día</strong> y tras un rally. Más recorrido al alza, pero mucho más riesgo de entrada. Si aportas, <strong>repártelos en 6–10 meses</strong>.</div></li>
+        <li><span class="mk hold">!</span><div><strong>Antes de mover nada, cierra dos datos:</strong> el <strong>anexo de comisiones</strong> de cada fondo (cada 1 % extra resta cientos de € a 5–10 años) y <strong>cómo tributa en Impuesto de Sociedades</strong> (aquí no hay ventaja fiscal: el tomador es la SL, no coincide con el asegurado).</div></li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="foot">
+    Documento de apoyo para conversación con gestor/mediador. Asunciones: rentabilidades netas anuales constantes de 2 % / 4,5 % / 7 %; aportación mensual de 150 € a fin de mes; punto de partida 1.430 €; volatilidad estimada 14–16 % (no reflejada en las líneas, que son medias). No constituye asesoramiento financiero ni recomendación de inversión. Rentabilidades pasadas no garantizan rentabilidades futuras; el capital está sujeto a las fluctuaciones del mercado y a las comisiones y penalizaciones de la póliza.
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  const MONTHS = 120, START = 1430, MONTHLY = 150, LUMP = 3000, PAST = 1500;
+  const RATES = { prudent: 0.02, base: 0.045, fav: 0.07 };
+  const STRATS = {
+    A: { name: "Solo mantener", monthly: 0, lump: 0, color: "--s-a" },
+    B: { name: "Seguir 150 €/mes", monthly: MONTHLY, lump: 0, color: "--s-b" },
+    C: { name: "+3.000 € ahora", monthly: MONTHLY, lump: LUMP, color: "--s-c" }
+  };
+
+  function project(strat, rate) {
+    const i = Math.pow(1 + rate, 1 / 12) - 1;
+    let v = START + strat.lump;
+    const pts = [v];
+    for (let m = 1; m <= MONTHS; m++) { v = v * (1 + i) + strat.monthly; pts.push(v); }
+    return pts; // index 0..120 (months)
+  }
+  const cache = {};
+  for (const k in STRATS) { cache[k] = {}; for (const s in RATES) cache[k][s] = project(STRATS[k], RATES[s]); }
+
+  function aportadoAt(strat, months) { return PAST + strat.lump + strat.monthly * months; }
+  const cssv = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  const eur = (v) => Math.round(v).toLocaleString("es-ES") + " €";
+  const NS = "http://www.w3.org/2000/svg";
+  const el = (t, a) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); return e; };
+
+  // geometry
+  const VW = 720, VH = 380, M = { t: 18, r: 96, b: 34, l: 20 };
+  const PW = VW - M.l - M.r, PH = VH - M.t - M.b;
+  const xAt = (yr) => M.l + (yr / 10) * PW;
+  function niceMax(v) {
+    const raw = v * 1.08, mag = Math.pow(10, Math.floor(Math.log10(raw)));
+    const n = raw / mag;
+    const step = n <= 1 ? 1 : n <= 2 ? 2 : n <= 2.5 ? 2.5 : n <= 5 ? 5 : 10;
+    return step * mag;
+  }
+  const yAt = (val, max) => M.t + PH - (val / max) * PH;
+
+  function drawFrame(svg, max) {
+    const ticks = 5;
+    for (let i = 0; i <= ticks; i++) {
+      const val = (max / ticks) * i, y = yAt(val, max);
+      svg.appendChild(el("line", { x1: M.l, y1: y, x2: M.l + PW, y2: y, class: i === 0 ? "zeroline" : "gridline" }));
+      const tx = document.createElementNS(NS, "text");
+      tx.setAttribute("x", M.l - 6); tx.setAttribute("y", y + 3.5);
+      tx.setAttribute("text-anchor", "end"); tx.setAttribute("class", "axis-txt");
+      tx.textContent = Math.round(val / 1000) + "k";
+      svg.appendChild(tx);
+    }
+    for (let yr = 0; yr <= 10; yr += 2) {
+      const x = xAt(yr), ty = M.t + PH + 18;
+      const tx = document.createElementNS(NS, "text");
+      tx.setAttribute("x", x); tx.setAttribute("y", ty);
+      tx.setAttribute("text-anchor", "middle"); tx.setAttribute("class", "axis-txt");
+      tx.textContent = yr === 0 ? "hoy" : yr + "a";
+      svg.appendChild(tx);
+    }
+  }
+  const pathFrom = (pts, max) => pts.map((v, m) => (m === 0 ? "M" : "L") + xAt(m / 12).toFixed(1) + "," + yAt(v, max).toFixed(1)).join(" ");
+
+  /* ---------- Chart 1 ---------- */
+  const svg1 = document.getElementById("chart1"), tt1 = document.getElementById("tt1");
+  let scn = "base";
+  function drawChart1() {
+    svg1.textContent = "";
+    const keys = ["A", "B", "C"];
+    let max = 0; keys.forEach(k => { max = Math.max(max, cache[k][scn][MONTHS]); });
+    max = niceMax(max);
+    drawFrame(svg1, max);
+    keys.forEach(k => {
+      const c = cssv(STRATS[k].color), pts = cache[k][scn];
+      svg1.appendChild(el("path", { d: pathFrom(pts, max), fill: "none", stroke: c, "stroke-width": 2.4, "stroke-linejoin": "round", "stroke-linecap": "round" }));
+      const endY = yAt(pts[MONTHS], max);
+      svg1.appendChild(el("circle", { cx: xAt(10), cy: endY, r: 3.6, fill: c }));
+      const t1 = document.createElementNS(NS, "text");
+      t1.setAttribute("x", xAt(10) + 8); t1.setAttribute("y", endY - 2); t1.setAttribute("class", "endlabel"); t1.setAttribute("fill", c);
+      t1.textContent = eur(pts[MONTHS]); svg1.appendChild(t1);
+      const t2 = document.createElementNS(NS, "text");
+      t2.setAttribute("x", xAt(10) + 8); t2.setAttribute("y", endY + 10); t2.setAttribute("class", "endlabel-name"); t2.setAttribute("fill", "var(--muted)");
+      t2.textContent = k; svg1.appendChild(t2);
+    });
+    addHover(svg1, tt1, max, (yr) => {
+      const rows = keys.map(k => ({ name: k + " · " + STRATS[k].name, color: cssv(STRATS[k].color), val: cache[k][scn][Math.round(yr * 12)] }));
+      return { head: (yr === 0 ? "Hoy" : "Año " + yr), rows };
+    });
+  }
+
+  /* ---------- Chart 2 ---------- */
+  const svg2 = document.getElementById("chart2"), tt2 = document.getElementById("tt2");
+  let strat = "B";
+  function drawChart2() {
+    svg2.textContent = "";
+    const lo = cache[strat].prudent, hi = cache[strat].fav, mid = cache[strat].base;
+    const max = niceMax(hi[MONTHS]);
+    drawFrame(svg2, max);
+    // band
+    const up = hi.map((v, m) => (m === 0 ? "M" : "L") + xAt(m / 12).toFixed(1) + "," + yAt(v, max).toFixed(1)).join(" ");
+    const down = lo.map((v, m) => m).reverse().map(m => "L" + xAt(m / 12).toFixed(1) + "," + yAt(lo[m], max).toFixed(1)).join(" ");
+    svg2.appendChild(el("path", { d: up + " " + down + " Z", fill: "var(--band)", stroke: "none" }));
+    const c = cssv(STRATS[strat].color);
+    svg2.appendChild(el("path", { d: pathFrom(hi, max), fill: "none", stroke: c, "stroke-width": 1.2, "stroke-dasharray": "3 3", opacity: .75 }));
+    svg2.appendChild(el("path", { d: pathFrom(lo, max), fill: "none", stroke: c, "stroke-width": 1.2, "stroke-dasharray": "3 3", opacity: .75 }));
+    svg2.appendChild(el("path", { d: pathFrom(mid, max), fill: "none", stroke: c, "stroke-width": 2.6, "stroke-linejoin": "round", "stroke-linecap": "round" }));
+    [["fav", hi], ["base", mid], ["prudent", lo]].forEach(([nm, pts]) => {
+      const endY = yAt(pts[MONTHS], max);
+      const lab = document.createElementNS(NS, "text");
+      lab.setAttribute("x", xAt(10) + 8); lab.setAttribute("y", endY + 3.5); lab.setAttribute("class", "endlabel"); lab.setAttribute("fill", nm === "base" ? c : "var(--muted)");
+      lab.textContent = eur(pts[MONTHS]); svg2.appendChild(lab);
+    });
+    svg2.appendChild(el("circle", { cx: xAt(10), cy: yAt(mid[MONTHS], max), r: 3.8, fill: c }));
+    addHover(svg2, tt2, max, (yr) => {
+      const idx = Math.round(yr * 12);
+      return {
+        head: (yr === 0 ? "Hoy" : "Año " + yr) + " · " + STRATS[strat].name,
+        rows: [
+          { name: "Favorable 7 %", color: c, val: hi[idx] },
+          { name: "Base 4,5 %", color: c, val: mid[idx] },
+          { name: "Prudente 2 %", color: c, val: lo[idx] }
+        ]
+      };
+    });
+  }
+
+  /* ---------- shared hover ---------- */
+  function addHover(svg, tt, max, rowsForYear) {
+    const cross = el("line", { class: "zeroline", y1: M.t, y2: M.t + PH, opacity: 0 });
+    svg.appendChild(cross);
+    const overlay = el("rect", { x: M.l, y: M.t, width: PW, height: PH, fill: "transparent" });
+    svg.appendChild(overlay);
+    function move(clientX) {
+      const r = svg.getBoundingClientRect();
+      const sx = (clientX - r.left) / r.width * VW;
+      let yr = (sx - M.l) / PW * 10;
+      yr = Math.max(0, Math.min(10, Math.round(yr * 4) / 4));
+      const x = xAt(yr);
+      cross.setAttribute("x1", x); cross.setAttribute("x2", x); cross.setAttribute("opacity", .5);
+      const data = rowsForYear(yr);
+      tt.innerHTML = '<div class="tt-head">' + data.head + '</div>' +
+        data.rows.map(rw => '<div class="tt-row"><span class="lft"><span class="tt-dot" style="background:' + rw.color + '"></span>' + rw.name + '</span><span class="val">' + eur(rw.val) + '</span></div>').join("");
+      tt.style.opacity = 1;
+      const px = x / VW * svg.getBoundingClientRect().width;
+      const box = tt.getBoundingClientRect();
+      let left = px + 14; if (left + box.width > svg.getBoundingClientRect().width) left = px - box.width - 14;
+      tt.style.left = Math.max(0, left) + "px"; tt.style.top = "10px";
+    }
+    overlay.addEventListener("mousemove", e => move(e.clientX));
+    overlay.addEventListener("mouseleave", () => { tt.style.opacity = 0; cross.setAttribute("opacity", 0); });
+    overlay.addEventListener("touchstart", e => move(e.touches[0].clientX), { passive: true });
+    overlay.addEventListener("touchmove", e => move(e.touches[0].clientX), { passive: true });
+  }
+
+  /* ---------- table ---------- */
+  function buildTable() {
+    const tb = document.getElementById("tbody");
+    const years = [1, 3, 5, 10];
+    ["A", "B", "C"].forEach(k => {
+      years.forEach((yr, j) => {
+        const tr = document.createElement("tr");
+        if (j === 0) tr.className = "rowgroup";
+        const idx = yr * 12;
+        const nameCell = j === 0
+          ? '<span class="stratcell"><span class="swatch" style="background:' + cssv(STRATS[k].color) + '"></span>' + k + " · " + STRATS[k].name + " — " + yr + " a</span>"
+          : '<span style="color:var(--muted);padding-left:22px">' + yr + " años</span>";
+        tr.innerHTML =
+          "<td>" + nameCell + "</td>" +
+          '<td style="color:var(--muted)">' + eur(aportadoAt(STRATS[k], idx)) + "</td>" +
+          "<td>" + eur(cache[k].prudent[idx]) + "</td>" +
+          '<td style="font-weight:650">' + eur(cache[k].base[idx]) + "</td>" +
+          "<td>" + eur(cache[k].fav[idx]) + "</td>";
+        tb.appendChild(tr);
+      });
+    });
+  }
+
+  // wire controls
+  document.querySelectorAll("[data-scn]").forEach(b => b.addEventListener("click", () => {
+    document.querySelectorAll("[data-scn]").forEach(x => x.setAttribute("aria-pressed", "false"));
+    b.setAttribute("aria-pressed", "true"); scn = b.dataset.scn; drawChart1();
+  }));
+  document.querySelectorAll("[data-strat]").forEach(b => b.addEventListener("click", () => {
+    document.querySelectorAll("[data-strat]").forEach(x => x.setAttribute("aria-pressed", "false"));
+    b.setAttribute("aria-pressed", "true"); strat = b.dataset.strat; drawChart2();
+  }));
+
+  function renderAll() { drawChart1(); drawChart2(); }
+  buildTable();
+  renderAll();
+  // redraw on theme change so CSS-var colors refresh
+  const mo = new MutationObserver(renderAll);
+  mo.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  if (window.matchMedia) window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", renderAll);
+})();
+</script>
